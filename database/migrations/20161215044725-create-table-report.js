@@ -5,7 +5,7 @@ module.exports = {
     return queryInterface.createTable(
       'report',
       {
-        uuid: {
+        id: {
           type: Sequelize.UUID,
           defaultValue: Sequelize.UUIDV1,
           primaryKey: true,

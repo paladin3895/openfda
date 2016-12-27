@@ -5,16 +5,16 @@ module.exports = {
     return queryInterface.createTable(
       'reaction',
       {
-        uuid: {
+        id: {
           type: Sequelize.UUID,
           defaultValue: Sequelize.UUIDV1,
           primaryKey: true,
         },
-        reportUuid: {
+        reportId: {
           type: Sequelize.UUID,
           references: {
             model: 'report',
-            key: 'uuid',
+            key: 'id',
           }
         },
         reactionOutcome: {
@@ -32,6 +32,12 @@ module.exports = {
         additional: {
           type: Sequelize.TEXT,
           allowNull: true,
+          get: function()  {
+            return JSON.parse(this.getDataValue('additional'));
+          },
+          set: function(val) {
+            this.setDataValue('additional', JSON.stringify(val);
+          }
         },
       },
       {

@@ -5,16 +5,16 @@ module.exports = {
     return queryInterface.createTable(
       'patient',
       {
-        uuid: {
+        id: {
           type: Sequelize.UUID,
           defaultValue: Sequelize.UUIDV1,
           primaryKey: true,
         },
-        reportUuid: {
+        reportId: {
           type: Sequelize.UUID,
           references: {
             model: 'report',
-            key: 'uuid',
+            key: 'id',
           }
         },
         onsetAge: {

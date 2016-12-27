@@ -2,17 +2,17 @@
 
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('reaction', {
-    uuid: {
+    id: {
       type: DataTypes.CHAR(36),
       allowNull: false,
       primaryKey: true
     },
-    reportUuid: {
+    reportId: {
       type: DataTypes.CHAR(36),
       allowNull: true,
       references: {
         model: 'report',
-        key: 'uuid'
+        key: 'id'
       }
     },
     reactionOutcome: {

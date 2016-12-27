@@ -2,7 +2,7 @@
 
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('report', {
-    uuid: {
+    id: {
       type: DataTypes.CHAR(36),
       allowNull: false,
       primaryKey: true
