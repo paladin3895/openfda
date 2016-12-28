@@ -32,12 +32,6 @@ module.exports = {
         additional: {
           type: Sequelize.TEXT,
           allowNull: true,
-          get: function()  {
-            return JSON.parse(this.getDataValue('additional'));
-          },
-          set: function(val) {
-            this.setDataValue('additional', JSON.stringify(val);
-          }
         },
       },
       {

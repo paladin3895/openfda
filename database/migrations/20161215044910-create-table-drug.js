@@ -60,32 +60,14 @@ module.exports = {
         activeSubstance: {
           type: Sequelize.TEXT,
           allowNull: true,
-          get: function()  {
-            return JSON.parse(this.getDataValue('activeSubstance'));
-          },
-          set: function(val) {
-            this.setDataValue('activeSubstance', JSON.stringify(val);
-          }
         },
         openfda: {
           type: Sequelize.TEXT,
           allowNull: true,
-          get: function()  {
-            return JSON.parse(this.getDataValue('openfda'));
-          },
-          set: function(val) {
-            this.setDataValue('openfda', JSON.stringify(val);
-          }
         },
         additional: {
           type: Sequelize.TEXT,
           allowNull: true,
-          get: function()  {
-            return JSON.parse(this.getDataValue('additional'));
-          },
-          set: function(val) {
-            this.setDataValue('additional', JSON.stringify(val);
-          }
         },
       },
       {

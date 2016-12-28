@@ -29,8 +29,14 @@ module.exports = function(sequelize, DataTypes) {
     },
     additional: {
       type: DataTypes.TEXT,
-      allowNull: true
-    }
+      allowNull: true,
+      get: function()  {
+        return JSON.parse(this.getDataValue('additional'));
+      },
+      set: function(val) {
+        this.setDataValue('additional', JSON.stringify(val));
+      }
+    },
   }, {
     tableName: 'reaction'
   });

@@ -22,16 +22,16 @@ module.exports = {
           type: Sequelize.STRING,
           allowNull: true,
         },
+        safetyReportVersion: {
+          type: Sequelize.STRING,
+          allowNull: true,
+        },
         serious: {
           type: Sequelize.INTEGER,
           allowNull: true,
         },
-        receiveDate: {
-          type: Sequelize.DATE,
-          allowNull: true,
-        },
-        transmissionDate: {
-          type: Sequelize.DATE,
+        additional: {
+          type: Sequelize.TEXT,
           allowNull: true,
         },
         createdAt: {

@@ -57,16 +57,34 @@ module.exports = function(sequelize, DataTypes) {
     },
     activeSubstance: {
       type: DataTypes.TEXT,
-      allowNull: true
+      allowNull: true,
+      get: function()  {
+        return JSON.parse(this.getDataValue('activeSubstance'));
+      },
+      set: function(val) {
+        this.setDataValue('activeSubstance', JSON.stringify(val));
+      }
     },
     openfda: {
       type: DataTypes.TEXT,
-      allowNull: true
+      allowNull: true,
+      get: function()  {
+        return JSON.parse(this.getDataValue('openfda'));
+      },
+      set: function(val) {
+        this.setDataValue('openfda', JSON.stringify(val));
+      }
     },
     additional: {
       type: DataTypes.TEXT,
-      allowNull: true
-    }
+      allowNull: true,
+      get: function()  {
+        return JSON.parse(this.getDataValue('additional'));
+      },
+      set: function(val) {
+        this.setDataValue('additional', JSON.stringify(val));
+      }
+    },
   }, {
     tableName: 'drug'
   });
