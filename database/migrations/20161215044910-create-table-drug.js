@@ -17,10 +17,6 @@ module.exports = {
             key: 'id',
           }
         },
-        startDate: {
-          type: Sequelize.DATE,
-          allowNull: true,
-        },
         indication: {
           type: Sequelize.STRING,
           allowNull: true,

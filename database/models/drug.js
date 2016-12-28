@@ -15,10 +15,6 @@ module.exports = function(sequelize, DataTypes) {
         key: 'id'
       }
     },
-    startDate: {
-      type: DataTypes.DATE,
-      allowNull: true
-    },
     indication: {
       type: DataTypes.STRING,
       allowNull: true
@@ -86,6 +82,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
   }, {
-    tableName: 'drug'
+    tableName: 'drug',
+    timestamps: false,
   });
 };

@@ -38,6 +38,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
   }, {
-    tableName: 'reaction'
+    tableName: 'reaction',
+    timestamps: false,
   });
 };
