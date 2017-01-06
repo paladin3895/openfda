@@ -31,7 +31,7 @@ module.exports = {
         },
         sex: {
           type: Sequelize.INTEGER,
-          allowNull: false,
+          allowNull: true,
         },
       },
       {
