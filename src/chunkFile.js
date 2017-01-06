@@ -1,4 +1,5 @@
 import fs from 'fs';
+import os from 'os';
 import path from 'path';
 import uuid from 'uuid';
 import _ from 'lodash';
@@ -19,8 +20,10 @@ resources.forEach((url) => {
 
   _.range(0, length, limit)
    .forEach(() => {
+     const chunkName = uuid.v1();
+     fs.appendFile(path.join(chunkDir, 'index'), `${chunkName}${os.EOL}`);
      fs.writeFileSync(
-       path.join(chunkDir, uuid.v1()),
+       path.join(chunkDir, chunkName),
        JSON.stringify(data.results.splice(0, limit)));
    });
 });
