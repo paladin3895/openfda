@@ -80,3 +80,8 @@ export function mapReactionData({ reactionoutcome, reactionmeddrapt, reactionmed
     reactionVersion: reactionmeddraversionpt,
   };
 }
+
+export function getResource(link) {
+  const signature = /http:\/\/download\.open\.fda\.gov\/drug\/event\/([\w]+)\/([\w-.]+)/g;
+  
+}

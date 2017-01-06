@@ -29,7 +29,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     sex: {
       type: DataTypes.INTEGER(11),
-      allowNull: false
+      allowNull: true
     }
   }, {
     tableName: 'patient',
