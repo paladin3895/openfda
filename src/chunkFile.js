@@ -15,6 +15,7 @@ if (!fs.existsSync(chunkDir)) {
 
 resources.forEach((url) => {
   const resource = path.join(dataDir, url.split('/').pop().replace('.zip', ''));
+  process.stdout.write(`Processing file ${resource}${EOL}`);
   const readStream = fs.createReadStream(resource);
   readStream.on('end', () => {
     fs.unlink(resource);
