@@ -7,7 +7,7 @@ import JSONStream from 'JSONStream';
 
 const dataDir = path.join(__dirname, '..', 'data');
 const chunkDir = path.join(dataDir, 'chunks');
-const resources = JSON.parse(fs.readFileSync(path.join(__dirname, '../resources.mockup.json')));
+const resources = JSON.parse(fs.readFileSync(path.join(__dirname, '../resources.json')));
 
 if (!fs.existsSync(chunkDir)) {
   fs.mkdirSync(chunkDir);
