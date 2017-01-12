@@ -12,7 +12,7 @@ if (!fs.existsSync(chunkDir)) {
   fs.mkdirSync(chunkDir);
 }
 
-const resource = process.argv[2];
+const resource = path.join(dataDir, process.argv[2]);
 if (!fs.existsSync(resource)) { process.exit(); }
 
 process.stdout.write(`Processing file ${resource}${EOL}`);
@@ -42,7 +42,6 @@ parser.on('data', (report) => {
   count += 1;
   if ((count % limit === limit - 1) || (count === length)) {
     fs.writeFileSync(filename, zlib.gzipSync(JSON.stringify(list)));
-    fs.appendFile(path.join(chunkDir, 'index'), `${filename}${EOL}`);
     list = [];
   }
 });
