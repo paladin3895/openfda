@@ -53,10 +53,6 @@ module.exports = {
           type: Sequelize.INTEGER,
           allowNull: true,
         },
-        activeSubstance: {
-          type: Sequelize.TEXT,
-          allowNull: true,
-        },
         openfda: {
           type: Sequelize.TEXT,
           allowNull: true,

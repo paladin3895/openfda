@@ -48,12 +48,12 @@ export function mapDrugData({
   drugcharacterization,
   drugstructuredosagenumb,
   drugstructuredosageunit,
-  drugdossageform,
+  drugdosageform,
   drugdosagetext,
   actiondrug,
   openfda,
   activesubstance,
-  ...additional
+  // ...additional
 }) {
   return {
     id: uuid.v1(),
@@ -63,12 +63,12 @@ export function mapDrugData({
     characterization: drugcharacterization,
     structureDosageUnit: drugstructuredosageunit,
     structureDosageNumber: drugstructuredosagenumb,
-    dossageForm: drugdossageform,
+    dosageForm: drugdosageform,
     dosageText: drugdosagetext,
     actionDrug: actiondrug,
     openfda: _.isObject(openfda) ? openfda.spl_id : null,
-    activeSubstance: activesubstance,
-    additional,
+    substances: activesubstance ?
+      mapSubstanceData(activesubstance.activesubstancename) : [],
   };
 }
 
@@ -81,7 +81,11 @@ export function mapReactionData({ reactionoutcome, reactionmeddrapt, reactionmed
   };
 }
 
-export function getResource(link) {
-  const signature = /http:\/\/download\.open\.fda\.gov\/drug\/event\/([\w]+)\/([\w-.]+)/g;
-  
+export function mapSubstanceData(substanceNames) {
+  return substanceNames
+    .split('\\')
+    .map(substanceName => ({
+      id: uuid.v1(),
+      substance: substanceName,
+    }));
 }

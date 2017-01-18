@@ -14,16 +14,25 @@ describe('Helper functions', () => {
     expect(reportModel)
       .is.an('object')
       .that.has.keys(
-        'type', 'country', 'safetyReportId', 'safetyReportVersion', 'serious', 'additional',
+        'id', 'type', 'country',
+        'safetyReportId', 'safetyReportVersion',
+        'serious', 'additional',
         'patient', 'drugs', 'reactions');
 
     expect(reportModel.patient)
       .is.an('object')
-      .that.has.keys('onsetAge', 'onsetAgeUnit', 'onsetAgeGroup', 'sex');
+      .that.has.keys('id', 'onsetAge', 'onsetAgeUnit', 'onsetAgeGroup', 'sex');
 
     expect(reportModel.drugs)
       .is.an('array')
       .that.has.lengthOf(1);
+
+    reportModel.drugs.forEach((drug) => {
+      expect(drug)
+        .is.an('object')
+        .that.has.property('substances')
+        .to.be.an('array');
+    });
 
     expect(reportModel.reactions)
       .is.an('array')
