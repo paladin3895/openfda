@@ -21,7 +21,7 @@ describe('Helper functions', () => {
 
     expect(reportModel.patient)
       .is.an('object')
-      .that.has.keys('id', 'onsetAge', 'onsetAgeUnit', 'onsetAgeGroup', 'sex');
+      .that.has.keys('id', 'reportId', 'onsetAge', 'onsetAgeUnit', 'onsetAgeGroup', 'sex');
 
     expect(reportModel.drugs)
       .is.an('array')

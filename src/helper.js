@@ -11,18 +11,19 @@ export function mapDataToModels({ patient, ...report }) {
     serious,
     ...additional
   } = report;
+  const id = uuid.v1();
 
   return {
-    id: uuid.v1(),
+    id,
     type: reporttype,
     country: occurcountry,
     safetyReportId: safetyreportid,
     safetyReportVersion: safetyreportversion,
     serious,
     additional,
-    patient: mapPatientData(patient),
-    drugs: drugs.map(drug => mapDrugData(drug)),
-    reactions: reactions.map(reaction => mapReactionData(reaction)),
+    patient: { ...mapPatientData(patient), reportId: id },
+    drugs: drugs.map(drug => ({ ...mapDrugData(drug), reportId: id })),
+    reactions: reactions.map(reaction => ({ ...mapReactionData(reaction), reportId: id })),
   };
 }
 
@@ -55,8 +56,9 @@ export function mapDrugData({
   activesubstance,
   // ...additional
 }) {
+  const id = uuid.v1();
   return {
-    id: uuid.v1(),
+    id,
     indication: drugindication,
     medicinalProduct: medicinalproduct,
     administrationRoute: drugadministrationroute,
@@ -67,8 +69,10 @@ export function mapDrugData({
     dosageText: drugdosagetext,
     actionDrug: actiondrug,
     openfda: _.isObject(openfda) ? openfda.spl_id : null,
-    substances: activesubstance ?
-      mapSubstanceData(activesubstance.activesubstancename) : [],
+    substances: (typeof activesubstance !== 'undefined') ?
+      mapSubstanceData(activesubstance.activesubstancename)
+        .map(substance => ({ ...substance, drugId: id }))
+      : [],
   };
 }
 
