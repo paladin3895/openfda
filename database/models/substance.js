@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     drugId: {
       type: DataTypes.CHAR(36),
-      allowNull: false,
+      allowNull: true,
       references: {
         model: 'drug',
         key: 'id'

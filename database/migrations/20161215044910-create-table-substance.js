@@ -12,7 +12,7 @@ module.exports = {
         },
         drugId: {
           type: Sequelize.UUID,
-          defaultValue: Sequelize.UUIDV1,
+          allowNull: true,
           references: {
             model: 'drug',
             key: 'id',

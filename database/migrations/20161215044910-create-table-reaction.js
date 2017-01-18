@@ -12,6 +12,7 @@ module.exports = {
         },
         reportId: {
           type: Sequelize.UUID,
+          allowNull: true,
           references: {
             model: 'report',
             key: 'id',
