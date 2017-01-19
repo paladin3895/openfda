@@ -9,7 +9,7 @@ export function mapDataToModels({ patient, ...report }) {
     safetyreportid,
     safetyreportversion,
     serious,
-    ...additional
+    // ...additional
   } = report;
   const id = uuid.v1();
 
@@ -20,7 +20,7 @@ export function mapDataToModels({ patient, ...report }) {
     safetyReportId: safetyreportid,
     safetyReportVersion: safetyreportversion,
     serious,
-    additional,
+    // additional,
     patient: { ...mapPatientData(patient), reportId: id },
     drugs: drugs.map(drug => ({ ...mapDrugData(drug), reportId: id })),
     reactions: reactions.map(reaction => ({ ...mapReactionData(reaction), reportId: id })),
@@ -47,8 +47,8 @@ export function mapDrugData({
   medicinalproduct,
   drugadministrationroute,
   drugcharacterization,
-  drugstructuredosagenumb,
-  drugstructuredosageunit,
+  // drugstructuredosagenumb,
+  // drugstructuredosageunit,
   drugdosageform,
   drugdosagetext,
   actiondrug,
@@ -63,12 +63,13 @@ export function mapDrugData({
     medicinalProduct: medicinalproduct,
     administrationRoute: drugadministrationroute,
     characterization: drugcharacterization,
-    structureDosageUnit: drugstructuredosageunit,
-    structureDosageNumber: drugstructuredosagenumb,
+    // structureDosageUnit: drugstructuredosageunit,
+    // structureDosageNumber: drugstructuredosagenumb,
     dosageForm: drugdosageform,
     dosageText: drugdosagetext,
     actionDrug: actiondrug,
     openfda: _.isObject(openfda) ? openfda.spl_id : null,
+    // additional: additional,
     substances: (typeof activesubstance !== 'undefined') ?
       mapSubstanceData(activesubstance.activesubstancename)
         .map(substance => ({ ...substance, drugId: id }))
