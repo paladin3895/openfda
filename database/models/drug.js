@@ -35,14 +35,14 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true
     },
-    structureDosageUnit: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    structureDosageNumber: {
-      type: DataTypes.INTEGER(11),
-      allowNull: true
-    },
+    // structureDosageUnit: {
+    //   type: DataTypes.STRING,
+    //   allowNull: true
+    // },
+    // structureDosageNumber: {
+    //   type: DataTypes.INTEGER(11),
+    //   allowNull: true
+    // },
     characterization: {
       type: DataTypes.INTEGER(11),
       allowNull: true
@@ -61,16 +61,16 @@ module.exports = function(sequelize, DataTypes) {
         this.setDataValue('openfda', JSON.stringify(val));
       }
     },
-    additional: {
-      type: DataTypes.TEXT,
-      allowNull: true,
-      get: function()  {
-        return JSON.parse(this.getDataValue('additional'));
-      },
-      set: function(val) {
-        this.setDataValue('additional', JSON.stringify(val));
-      }
-    },
+    // additional: {
+    //   type: DataTypes.TEXT,
+    //   allowNull: true,
+    //   get: function()  {
+    //     return JSON.parse(this.getDataValue('additional'));
+    //   },
+    //   set: function(val) {
+    //     this.setDataValue('additional', JSON.stringify(val));
+    //   }
+    // },
   }, {
     tableName: 'drug',
     timestamps: false,

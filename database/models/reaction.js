@@ -27,16 +27,16 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true
     },
-    additional: {
-      type: DataTypes.TEXT,
-      allowNull: true,
-      get: function()  {
-        return JSON.parse(this.getDataValue('additional'));
-      },
-      set: function(val) {
-        this.setDataValue('additional', JSON.stringify(val));
-      }
-    },
+    // additional: {
+    //   type: DataTypes.TEXT,
+    //   allowNull: true,
+    //   get: function()  {
+    //     return JSON.parse(this.getDataValue('additional'));
+    //   },
+    //   set: function(val) {
+    //     this.setDataValue('additional', JSON.stringify(val));
+    //   }
+    // },
   }, {
     tableName: 'reaction',
     timestamps: false,

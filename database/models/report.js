@@ -23,16 +23,16 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER(11),
       allowNull: true
     },
-    additional: {
-      type: DataTypes.TEXT,
-      allowNull: true,
-      get: function()  {
-        return JSON.parse(this.getDataValue('additional'));
-      },
-      set: function(val) {
-        this.setDataValue('additional', JSON.stringify(val));
-      }
-    },
+    // additional: {
+    //   type: DataTypes.TEXT,
+    //   allowNull: true,
+    //   get: function()  {
+    //     return JSON.parse(this.getDataValue('additional'));
+    //   },
+    //   set: function(val) {
+    //     this.setDataValue('additional', JSON.stringify(val));
+    //   }
+    // },
     createdAt: {
       type: DataTypes.DATE,
       allowNull: true

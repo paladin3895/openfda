@@ -30,10 +30,10 @@ module.exports = {
           type: Sequelize.STRING,
           allowNull: true,
         },
-        additional: {
-          type: Sequelize.TEXT,
-          allowNull: true,
-        },
+        // additional: {
+        //   type: Sequelize.TEXT,
+        //   allowNull: true,
+        // },
       },
       {
         engine: 'InnoDB',                     // default: 'InnoDB'
