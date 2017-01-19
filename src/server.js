@@ -24,7 +24,7 @@ server.use((req, res, next) => {
   return next();
 });
 
-const dataDir = path.join(__dirname, '..', 'data', 'adr');
+const dataDir = path.join(__dirname, '..', 'data', 'openfda.adr');
 
 server.get('/openfda/adr', (req, res, next) => {
   const index = fs.readFileSync(path.join(dataDir, 'index')).toString().trim().split(os.EOL);
