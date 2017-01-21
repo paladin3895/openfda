@@ -38,14 +38,14 @@ module.exports = {
           type: Sequelize.STRING,
           allowNull: true,
         },
-        structureDosageUnit: {
-          type: Sequelize.STRING,
-          allowNull: true,
-        },
-        structureDosageNumber: {
-          type: Sequelize.INTEGER,
-          allowNull: true,
-        },
+        // structureDosageUnit: {
+        //   type: Sequelize.STRING,
+        //   allowNull: true,
+        // },
+        // structureDosageNumber: {
+        //   type: Sequelize.INTEGER,
+        //   allowNull: true,
+        // },
         characterization: {
           type: Sequelize.INTEGER,
           allowNull: true,
