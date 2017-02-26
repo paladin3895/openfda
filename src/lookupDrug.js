@@ -73,4 +73,8 @@ Drug.findOne({
   }
 
   throw new Error('Empty response data');
-}).catch(error => fs.appendFileSync(logFile, `${error.message}${EOL}`));
+}).then(() => process.exit())
+.catch((error) => {
+  fs.appendFileSync(logFile, `${error.message}${EOL}`);
+  process.exit();
+});
