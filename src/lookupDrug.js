@@ -1,6 +1,6 @@
 import _ from 'lodash';
-import fs from 'fs';
-import path from 'path';
+// import fs from 'fs';
+// import path from 'path';
 import { EOL } from 'os';
 import axios from 'axios';
 import uuid from 'uuid';
@@ -15,13 +15,13 @@ console.log(`...Processing ${drugId}`);
 
 const apiEndpoint = 'https://api.fda.gov/drug/label.json';
 const apiKey = _.sample(process.env.API_KEY.split(','));
-const logFile = path.join(__dirname, '..', 'data', '.log');
+// const logFile = path.join(__dirname, '..', 'data', '.log');
 
 function lookupSplId(splId) {
   const query = `search=id:${splId}&limit=1&api_key=${apiKey}`;
   return axios
     .get(encodeURI(`${apiEndpoint}?${query}`))
-    .catch(error => fs.appendFileSync(logFile, `${splId}: ${error.message}${EOL}`));
+    .catch(error => console.log(`${splId}: ${error.message}${EOL}`));
 }
 
 function lookupDrugname(drugName) {
@@ -36,9 +36,9 @@ function lookupDrugname(drugName) {
   return Promise.all([
     axios
       .get(encodeURI(`${apiEndpoint}?search=generic_name:${name}&limit=1&api_key=${apiKey}`))
-      .catch(error => fs.appendFileSync(logFile, `${name}: ${error.message}${EOL}`)),
+      .catch(error => console.log(`${name}: ${error.message}${EOL}`)),
     axios.get(encodeURI(`${apiEndpoint}?search=brand_name:${name}&limit=1&api_key=${apiKey}`))
-      .catch(error => fs.appendFileSync(logFile, `${name}: ${error.message}${EOL}`)),
+      .catch(error => console.log(`${name}: ${error.message}${EOL}`)),
   ]).then(([generic, brand]) => {
     if (brand) {
       return brand;
@@ -75,6 +75,6 @@ Drug.findOne({
   throw new Error('Empty response data');
 }).then(() => process.exit())
 .catch((error) => {
-  fs.appendFileSync(logFile, `${error.message}${EOL}`);
+  console.log(`${error.message}${EOL}`);
   process.exit();
 });
